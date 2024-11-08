@@ -1,20 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_17cnuof" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.27.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.21.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_17cnuof" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.27.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.21.0">
   <bpmn:collaboration id="Collaboration_1h6x5v4">
-    <bpmn:participant id="ticket" name="Buy Train Ticket" processRef="BuyTrainTicket" />
+    <bpmn:participant id="Ticket" name="Buy Ticket" processRef="BuyTicket" />
   </bpmn:collaboration>
-  <bpmn:process id="BuyTrainTicket" isExecutable="true" camunda:historyTimeToLive="180">
-    <bpmn:startEvent id="StartEvent_1" />
+  <bpmn:process id="BuyTicket" isExecutable="true" camunda:historyTimeToLive="180">
+    <bpmn:startEvent id="StartEvent_1" camunda:formRef="BuyTicketForm" camunda:formRefBinding="latest" camunda:initiator="inicjator">
+      <bpmn:outgoing>Flow_0i3iria</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0i3iria" sourceRef="StartEvent_1" targetRef="Event_1hy72ya" />
+    <bpmn:endEvent id="Event_079uvhj">
+      <bpmn:incoming>Flow_08uajpn</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_08uajpn" sourceRef="Event_1hy72ya" targetRef="Event_079uvhj" />
+    <bpmn:intermediateCatchEvent id="Event_1hy72ya">
+      <bpmn:incoming>Flow_0i3iria</bpmn:incoming>
+      <bpmn:outgoing>Flow_08uajpn</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_01xc1g3">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT3M</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1h6x5v4">
-      <bpmndi:BPMNShape id="Participant_03pc2hi_di" bpmnElement="ticket" isHorizontal="true">
-        <dc:Bounds x="129" y="120" width="600" height="250" />
+      <bpmndi:BPMNShape id="Participant_116mvj7_di" bpmnElement="Ticket" isHorizontal="true">
+        <dc:Bounds x="129" y="80" width="1261" height="450" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
-        <dc:Bounds x="179" y="159" width="36" height="36" />
+        <dc:Bounds x="172" y="132" width="36" height="36" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_079uvhj_di" bpmnElement="Event_079uvhj">
+        <dc:Bounds x="502" y="132" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_04bhzyq_di" bpmnElement="Event_1hy72ya">
+        <dc:Bounds x="412" y="132" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0i3iria_di" bpmnElement="Flow_0i3iria">
+        <di:waypoint x="208" y="150" />
+        <di:waypoint x="412" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08uajpn_di" bpmnElement="Flow_08uajpn">
+        <di:waypoint x="448" y="150" />
+        <di:waypoint x="502" y="150" />
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

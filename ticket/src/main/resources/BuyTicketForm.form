@@ -1,0 +1,93 @@
+{
+  "components": [
+    {
+      "label": "Stacja początkowa",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1h7nhor",
+        "columns": null
+      },
+      "id": "Field_1we2cft",
+      "key": "form_start"
+    },
+    {
+      "label": "Stacja docelowa",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1la1yoc",
+        "columns": null
+      },
+      "id": "Field_02gsrk6",
+      "key": "form_end"
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Data wyjazdu",
+      "label": "Date time",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_056naup",
+        "columns": null
+      },
+      "id": "Field_10yomwf",
+      "key": "form_departureDate"
+    },
+    {
+      "label": "Zniżka",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_0yyf3om",
+        "columns": null
+      },
+      "id": "Field_0mplzbf",
+      "key": "form_isDiscounted"
+    },
+    {
+      "values": [
+        {
+          "label": "Student/Doktorant",
+          "value": "51"
+        },
+        {
+          "label": "Żołnierz",
+          "value": "78"
+        },
+        {
+          "label": "Karta Dużej Rodziny",
+          "value": "49"
+        },
+        {
+          "label": "Uczniowska",
+          "value": "37"
+        },
+        {
+          "label": "brak ulgi",
+          "value": "100"
+        }
+      ],
+      "label": "Discount",
+      "type": "select",
+      "layout": {
+        "row": "Row_10i4wpj",
+        "columns": null
+      },
+      "id": "Field_0gqd1fj",
+      "key": "form_discount",
+      "searchable": false,
+      "conditional": {
+        "hide": "=not (form_isDiscounted)"
+      },
+      "defaultValue": "100",
+      "properties": {}
+    }
+  ],
+  "type": "default",
+  "id": "BuyTicketForm",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.27.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.21.0",
+  "schemaVersion": 16
+}
