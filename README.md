@@ -10,7 +10,7 @@
     - If yes it is reserved. 
     - If not, random seat is selected and reserved. 
 7. **Review and confirm your booking:**: Double-check details and confirm.
-5. **Payment Method**: Clients is asked about payment method and details.
-    - If payment is successful the tocket is issued.
+5. **Payment Method**: Client is asked about payment method and details.
+    - If payment is successful the ticket is issued.
     - If payment is unsuccessful, the client have to enter payment info again.
 8. **Payment Attempts**: On third unsuccessful payment, reservation is cancelled and the client have to go to ticket office.

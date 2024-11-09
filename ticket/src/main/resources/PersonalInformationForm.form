@@ -1,0 +1,175 @@
+{
+  "components": [
+    {
+      "label": "Imię",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_08hkc11",
+        "columns": null
+      },
+      "id": "Field_0laym96",
+      "key": "pers_data_name",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Nazwisko",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0p701n8",
+        "columns": null
+      },
+      "id": "Field_1mdohum",
+      "key": "pers_data_surname",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Email",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1d48hos",
+        "columns": null
+      },
+      "id": "Field_15i4g71",
+      "key": "pers_data_email",
+      "validate": {
+        "required": true,
+        "pattern": "^[A-z._-]+@[A-z]+.[A-z]+$"
+      }
+    },
+    {
+      "label": "Nr Telefonu",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0l92r05",
+        "columns": null
+      },
+      "id": "Field_0l90w2i",
+      "key": "pers_data_phone",
+      "validate": {
+        "required": false,
+        "pattern": "[0-9]{9}"
+      }
+    },
+    {
+      "label": "Separator",
+      "type": "separator",
+      "layout": {
+        "row": "Row_17zahom",
+        "columns": null
+      },
+      "id": "Field_0f7ejfp"
+    },
+    {
+      "label": "Zniżka",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_1cihqwo",
+        "columns": null
+      },
+      "id": "Field_0h7v97a",
+      "key": "pers_data_isDisounted"
+    },
+    {
+      "values": [
+        {
+          "label": "Student/Doktorant",
+          "value": "51"
+        },
+        {
+          "label": "Żołnierz",
+          "value": "79"
+        },
+        {
+          "label": "Karta Dużej Rodziny",
+          "value": "49"
+        },
+        {
+          "label": "Uczeń",
+          "value": "37"
+        }
+      ],
+      "label": "Wybierz zniżk",
+      "type": "select",
+      "layout": {
+        "row": "Row_1q0zbu8",
+        "columns": null
+      },
+      "id": "Field_04lzwbz",
+      "key": "pers_data_discount",
+      "conditional": {
+        "hide": "=not (pers_data_isDisounted)"
+      }
+    },
+    {
+      "label": "Separator",
+      "type": "separator",
+      "layout": {
+        "row": "Row_0tt2e87",
+        "columns": null
+      },
+      "id": "Field_19wylpf"
+    },
+    {
+      "values": [
+        {
+          "label": "Nie mam preferencji",
+          "value": "0"
+        },
+        {
+          "label": "Okno",
+          "value": "1"
+        },
+        {
+          "label": "Korytarz",
+          "value": "2"
+        }
+      ],
+      "label": "Preferowane miejsce",
+      "type": "radio",
+      "layout": {
+        "row": "Row_0p15658",
+        "columns": null
+      },
+      "id": "Field_0vqxa3f",
+      "key": "pers_data_seat_type",
+      "defaultValue": "0",
+      "validate": {
+        "required": false
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "2 Klasa",
+          "value": "2"
+        },
+        {
+          "label": "1 Klasa",
+          "value": "1"
+        }
+      ],
+      "label": "Klasa przejazdu",
+      "type": "radio",
+      "layout": {
+        "row": "Row_0p15658",
+        "columns": null
+      },
+      "id": "Field_0r7g7dg",
+      "key": "pers_data_class",
+      "defaultValue": "2"
+    }
+  ],
+  "type": "default",
+  "id": "PersonalInfoForm",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.27.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.21.0",
+  "schemaVersion": 16
+}

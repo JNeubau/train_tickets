@@ -8,7 +8,10 @@
         "columns": null
       },
       "id": "Field_1we2cft",
-      "key": "form_start"
+      "key": "form_start",
+      "validate": {
+        "required": true
+      }
     },
     {
       "label": "Stacja docelowa",
@@ -18,7 +21,31 @@
         "columns": null
       },
       "id": "Field_02gsrk6",
-      "key": "form_end"
+      "key": "form_end",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "One-way",
+          "value": "1"
+        },
+        {
+          "label": "Round-trip",
+          "value": "2"
+        }
+      ],
+      "label": "Trip type",
+      "type": "radio",
+      "layout": {
+        "row": "Row_0n156o5",
+        "columns": null
+      },
+      "id": "Field_0q2dlwv",
+      "key": "form_type",
+      "defaultValue": "1"
     },
     {
       "subtype": "date",
@@ -26,59 +53,41 @@
       "label": "Date time",
       "type": "datetime",
       "layout": {
-        "row": "Row_056naup",
+        "row": "Row_0n156o5",
         "columns": null
       },
       "id": "Field_10yomwf",
-      "key": "form_departureDate"
+      "key": "form_departureDate",
+      "properties": {},
+      "validate": {
+        "required": true
+      },
+      "disallowPassedDates": true
     },
     {
-      "label": "Zniżka",
-      "type": "checkbox",
+      "height": 60,
+      "label": "Spacer",
+      "type": "spacer",
       "layout": {
-        "row": "Row_0yyf3om",
+        "row": "Row_0jrhi24",
         "columns": null
       },
-      "id": "Field_0mplzbf",
-      "key": "form_isDiscounted"
+      "id": "Field_00g5x3t"
     },
     {
-      "values": [
-        {
-          "label": "Student/Doktorant",
-          "value": "51"
-        },
-        {
-          "label": "Żołnierz",
-          "value": "78"
-        },
-        {
-          "label": "Karta Dużej Rodziny",
-          "value": "49"
-        },
-        {
-          "label": "Uczniowska",
-          "value": "37"
-        },
-        {
-          "label": "brak ulgi",
-          "value": "100"
-        }
-      ],
-      "label": "Discount",
-      "type": "select",
+      "subtype": "date",
+      "dateLabel": "Data powrotu",
+      "label": "Date time",
+      "type": "datetime",
       "layout": {
-        "row": "Row_10i4wpj",
+        "row": "Row_0jrhi24",
         "columns": null
       },
-      "id": "Field_0gqd1fj",
-      "key": "form_discount",
-      "searchable": false,
+      "id": "Field_1dzuzvq",
+      "key": "form_return_date",
       "conditional": {
-        "hide": "=not (form_isDiscounted)"
-      },
-      "defaultValue": "100",
-      "properties": {}
+        "hide": "=form_type = \"1\""
+      }
     }
   ],
   "type": "default",

@@ -1,0 +1,221 @@
+{
+  "components": [
+    {
+      "label": "Imię",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_00fxpgn",
+        "columns": null
+      },
+      "id": "Field_10zwshb",
+      "key": "pers_data_name",
+      "readonly": "true",
+      "disabled": true
+    },
+    {
+      "label": "Nazwisko",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1j6sxak",
+        "columns": null
+      },
+      "id": "Field_17uwgt0",
+      "key": "pers_data_surname",
+      "disabled": true
+    },
+    {
+      "label": "Email",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1aks7vw",
+        "columns": null
+      },
+      "id": "Field_084wytt",
+      "key": "pers_data_email",
+      "disabled": true
+    },
+    {
+      "label": "Nr Telefonu",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1eugm07",
+        "columns": null
+      },
+      "id": "Field_04b7drj",
+      "key": "pers_data_phone",
+      "disabled": true,
+      "conditional": {
+        "hide": "=pers_data_phone"
+      }
+    },
+    {
+      "label": "Zniżka",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_1d4fzq4",
+        "columns": null
+      },
+      "id": "Field_125gjle",
+      "key": "pers_data_isDisounted",
+      "disabled": true
+    },
+    {
+      "label": "Wysokość zniżki [%]",
+      "type": "number",
+      "layout": {
+        "row": "Row_1d4fzq4",
+        "columns": null
+      },
+      "id": "Field_1jdloif",
+      "key": "pers_data_discount",
+      "conditional": {
+        "hide": "=not (pers_data_isDisounted)"
+      },
+      "disabled": true,
+      "defaultValue": 0
+    },
+    {
+      "label": "Separator",
+      "type": "separator",
+      "layout": {
+        "row": "Row_05r3vli",
+        "columns": null
+      },
+      "id": "Field_1amr5ds"
+    },
+    {
+      "label": "Z",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_04rzkx2",
+        "columns": null
+      },
+      "id": "Field_0lbnnw5",
+      "key": "form_start",
+      "disabled": true
+    },
+    {
+      "label": "Do",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_08dfte4",
+        "columns": null
+      },
+      "id": "Field_10a81xw",
+      "key": "form_end",
+      "disabled": true
+    },
+    {
+      "components": [
+        {
+          "subtype": "date",
+          "dateLabel": "Data Wyjazdu",
+          "label": "Date time",
+          "type": "datetime",
+          "layout": {
+            "row": "Row_1yyz8cl",
+            "columns": null
+          },
+          "id": "Field_1fjnkgk",
+          "key": "form_departureDate",
+          "disabled": true
+        },
+        {
+          "label": "Wagon",
+          "type": "textfield",
+          "layout": {
+            "row": "Row_1loujhc",
+            "columns": null
+          },
+          "id": "Field_1ld81a2",
+          "key": "textfield_8klc1g"
+        },
+        {
+          "label": "Siedzenie",
+          "type": "textfield",
+          "layout": {
+            "row": "Row_1loujhc",
+            "columns": null
+          },
+          "id": "Field_1f93fez",
+          "key": "textfield_mhpr3r"
+        }
+      ],
+      "showOutline": true,
+      "label": "Bilet",
+      "type": "group",
+      "layout": {
+        "row": "Row_1bu3ji0",
+        "columns": null
+      },
+      "id": "Field_0nkegv5"
+    },
+    {
+      "components": [
+        {
+          "subtype": "date",
+          "dateLabel": "Data Powrotu",
+          "label": "Date time",
+          "type": "datetime",
+          "layout": {
+            "row": "Row_10s1tkk",
+            "columns": null
+          },
+          "id": "Field_0kk2gia",
+          "key": "form_return_date",
+          "disabled": true
+        },
+        {
+          "label": "Wagon",
+          "type": "textfield",
+          "layout": {
+            "row": "Row_17ewbue",
+            "columns": null
+          },
+          "id": "Field_0r2swvp",
+          "key": "textfield_ctmh6j"
+        },
+        {
+          "label": "Siedzenie",
+          "type": "textfield",
+          "layout": {
+            "row": "Row_17ewbue",
+            "columns": null
+          },
+          "id": "Field_0zngozm",
+          "key": "textfield_cd5tx"
+        }
+      ],
+      "showOutline": true,
+      "label": "Bilet Powrotny",
+      "type": "group",
+      "layout": {
+        "row": "Row_0i224cl",
+        "columns": null
+      },
+      "id": "Field_1lvby9n",
+      "conditional": {
+        "hide": "=form_type = \"1\""
+      }
+    },
+    {
+      "action": "submit",
+      "label": "Button",
+      "type": "button",
+      "layout": {
+        "row": "Row_16i46k8",
+        "columns": null
+      },
+      "id": "Field_0i2rxuq"
+    }
+  ],
+  "type": "default",
+  "id": "ConfirmTicketForm",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.27.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.21.0",
+  "schemaVersion": 16
+}
