@@ -37,7 +37,7 @@
           "value": "2"
         }
       ],
-      "label": "Trip type",
+      "label": "Typ Wyjazdu",
       "type": "radio",
       "layout": {
         "row": "Row_0n156o5",
@@ -48,13 +48,13 @@
       "defaultValue": "1"
     },
     {
-      "subtype": "date",
+      "subtype": "datetime",
       "dateLabel": "Data wyjazdu",
       "label": "Date time",
       "type": "datetime",
       "layout": {
         "row": "Row_0n156o5",
-        "columns": null
+        "columns": 11
       },
       "id": "Field_10yomwf",
       "key": "form_departureDate",
@@ -62,7 +62,11 @@
       "validate": {
         "required": true
       },
-      "disallowPassedDates": true
+      "disallowPassedDates": true,
+      "timeLabel": "Preferowana godzina wyjazdu",
+      "timeSerializingFormat": "no_timezone",
+      "timeInterval": 30,
+      "use24h": true
     },
     {
       "height": 60,
@@ -75,19 +79,24 @@
       "id": "Field_00g5x3t"
     },
     {
-      "subtype": "date",
+      "subtype": "datetime",
       "dateLabel": "Data powrotu",
       "label": "Date time",
       "type": "datetime",
       "layout": {
         "row": "Row_0jrhi24",
-        "columns": null
+        "columns": 11
       },
       "id": "Field_1dzuzvq",
-      "key": "form_return_date",
+      "key": "form_returnDate",
       "conditional": {
         "hide": "=form_type = \"1\""
-      }
+      },
+      "timeLabel": "Preferowana godzina powrotu",
+      "timeSerializingFormat": "no_timezone",
+      "timeInterval": 30,
+      "use24h": true,
+      "disallowPassedDates": true
     }
   ],
   "type": "default",

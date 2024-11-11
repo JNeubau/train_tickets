@@ -1,0 +1,116 @@
+{
+  "components": [
+    {
+      "label": "Z",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1f1uo8y",
+        "columns": null
+      },
+      "id": "Field_0ft9ir8",
+      "key": "from",
+      "disabled": true
+    },
+    {
+      "label": "Do",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1f1uo8y",
+        "columns": null
+      },
+      "id": "Field_12pxn4q",
+      "key": "to",
+      "disabled": true
+    },
+    {
+      "components": [
+        {
+          "subtype": "datetime",
+          "dateLabel": "Data",
+          "label": "Date time",
+          "type": "datetime",
+          "layout": {
+            "row": "Row_0mut6am",
+            "columns": null
+          },
+          "id": "Field_0zjco8z",
+          "key": "date1",
+          "disabled": true,
+          "timeLabel": "Czas",
+          "timeSerializingFormat": "no_timezone",
+          "timeInterval": 1,
+          "use24h": true,
+          "readonly": true
+        }
+      ],
+      "showOutline": true,
+      "label": "Opcja 1",
+      "type": "group",
+      "layout": {
+        "row": "Row_1p0yflv",
+        "columns": null
+      },
+      "id": "Field_1uvgnzm"
+    },
+    {
+      "components": [
+        {
+          "subtype": "datetime",
+          "dateLabel": "Data",
+          "label": "Date time",
+          "type": "datetime",
+          "layout": {
+            "row": "Row_0ujkvcu",
+            "columns": null
+          },
+          "id": "Field_0spcyq8",
+          "key": "date2",
+          "disabled": true,
+          "timeLabel": "Czas",
+          "timeSerializingFormat": "no_timezone",
+          "timeInterval": 1,
+          "use24h": true,
+          "readonly": true
+        }
+      ],
+      "showOutline": true,
+      "label": "Opcja 2",
+      "type": "group",
+      "layout": {
+        "row": "Row_0d3ptwx",
+        "columns": null
+      },
+      "id": "Field_0yizcpf"
+    },
+    {
+      "values": [
+        {
+          "label": "Opcja 1",
+          "value": "1"
+        },
+        {
+          "label": "Opcja 2",
+          "value": "2"
+        }
+      ],
+      "label": "Wybierz opcje",
+      "type": "radio",
+      "layout": {
+        "row": "Row_16md9g2",
+        "columns": null
+      },
+      "id": "Field_0qf0iax",
+      "key": "ticket_option",
+      "defaultValue": "1"
+    }
+  ],
+  "type": "default",
+  "id": "trainSelectionForm",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.27.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.21.0",
+  "schemaVersion": 16
+}
