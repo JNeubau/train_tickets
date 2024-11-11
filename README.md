@@ -1,3 +1,6 @@
+# Train Tickets
+A Camunda + Spring project describing a process of buying a train ticket.
+
 # Process of buying a train ticket
 
 1. **Form Submission**: Process start with form asking about the basic information regarding train.
@@ -14,3 +17,4 @@
     - If payment is successful the ticket is issued.
     - If payment is unsuccessful, the client have to enter payment info again.
 8. **Payment Attempts**: On third unsuccessful payment, reservation is cancelled and the client have to go to ticket office.
+=======
