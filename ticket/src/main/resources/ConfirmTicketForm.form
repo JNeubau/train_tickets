@@ -120,11 +120,13 @@
           "key": "departureTrain",
           "disabled": true,
           "timeLabel": "Odjazd",
-          "timeSerializingFormat": "utc_offset",
-          "timeInterval": 15
+          "timeSerializingFormat": "no_timezone",
+          "timeInterval": 1,
+          "use24h": true
         },
         {
           "subtype": "time",
+          "dateLabel": "Date",
           "label": "Date time",
           "type": "datetime",
           "layout": {
@@ -155,7 +157,8 @@
             "columns": null
           },
           "id": "Field_1ld81a2",
-          "key": "textfield_8klc1g"
+          "key": "DepartureCarNo",
+          "disabled": true
         },
         {
           "label": "Siedzenie",
@@ -165,7 +168,8 @@
             "columns": null
           },
           "id": "Field_1f93fez",
-          "key": "textfield_mhpr3r"
+          "key": "DepartureSeatNo",
+          "disabled": true
         }
       ],
       "showOutline": true,
@@ -192,11 +196,13 @@
           "key": "returnTrain",
           "disabled": true,
           "timeLabel": "Odjazd",
-          "timeSerializingFormat": "utc_offset",
-          "timeInterval": 15
+          "timeSerializingFormat": "no_timezone",
+          "timeInterval": 1,
+          "use24h": true
         },
         {
           "subtype": "time",
+          "dateLabel": "Date",
           "label": "Date time",
           "type": "datetime",
           "layout": {
@@ -227,7 +233,8 @@
             "columns": null
           },
           "id": "Field_0r2swvp",
-          "key": "textfield_ctmh6j"
+          "key": "ReturnCarNo",
+          "disabled": true
         },
         {
           "label": "Siedzenie",
@@ -237,7 +244,8 @@
             "columns": null
           },
           "id": "Field_0zngozm",
-          "key": "textfield_cd5tx"
+          "key": "ReturnSeatNo",
+          "disabled": true
         }
       ],
       "showOutline": true,

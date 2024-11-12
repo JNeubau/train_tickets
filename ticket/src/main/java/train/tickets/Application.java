@@ -1,6 +1,7 @@
 package train.tickets;
 
 import org.springframework.boot.SpringApplication;
+import java.util.Random;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication

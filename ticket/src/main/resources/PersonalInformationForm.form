@@ -102,7 +102,8 @@
       "key": "pers_data_discount",
       "conditional": {
         "hide": "=not (pers_data_isDisounted)"
-      }
+      },
+      "defaultValue": "51"
     },
     {
       "label": "Separator",
@@ -117,15 +118,15 @@
       "values": [
         {
           "label": "Nie mam preferencji",
-          "value": "0"
+          "value": "0_No"
         },
         {
           "label": "Okno",
-          "value": "1"
+          "value": "1_Win"
         },
         {
           "label": "Korytarz",
-          "value": "2"
+          "value": "2_Pass"
         }
       ],
       "label": "Preferowane miejsce",
@@ -136,7 +137,7 @@
       },
       "id": "Field_0vqxa3f",
       "key": "pers_data_seat_type",
-      "defaultValue": "0",
+      "defaultValue": "0_No",
       "validate": {
         "required": false
       }
@@ -145,11 +146,11 @@
       "values": [
         {
           "label": "2 Klasa",
-          "value": "2"
+          "value": "2_class"
         },
         {
           "label": "1 Klasa",
-          "value": "1"
+          "value": "1_class"
         }
       ],
       "label": "Klasa przejazdu",
@@ -160,7 +161,7 @@
       },
       "id": "Field_0r7g7dg",
       "key": "pers_data_class",
-      "defaultValue": "2"
+      "defaultValue": "2_class"
     }
   ],
   "type": "default",
