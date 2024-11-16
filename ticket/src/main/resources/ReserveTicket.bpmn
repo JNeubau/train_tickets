@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_10fk5a6" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.27.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.21.0">
+  <bpmn:process id="ReserveTicket" name="Reserve Ticket" isExecutable="true" camunda:historyTimeToLive="180">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1hq4b7i</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1hq4b7i" sourceRef="StartEvent_1" targetRef="Gateway_0qncahy" />
+    <bpmn:sequenceFlow id="Flow_1v1aug9" sourceRef="Gateway_0qncahy" targetRef="Activity_1ud3kq3" />
+    <bpmn:sequenceFlow id="Flow_1s45qjm" sourceRef="Activity_1ud3kq3" targetRef="Activity_091ke8m" />
+    <bpmn:sequenceFlow id="Flow_1ue7q0i" sourceRef="Activity_091ke8m" targetRef="Event_1relsuv" />
+    <bpmn:endEvent id="Event_1relsuv">
+      <bpmn:incoming>Flow_1ue7q0i</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1fl6ub8" sourceRef="Gateway_0qncahy" targetRef="Activity_1kv29v7">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${form_type == "2"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0lyltck" sourceRef="Activity_1kv29v7" targetRef="Activity_1f031fv" />
+    <bpmn:callActivity id="Activity_091ke8m" name="Get Car and Seat Number" calledElement="GetTrainInfo">
+      <bpmn:extensionElements>
+        <camunda:in source="pers_data_seat_type" target="seat_type" />
+        <camunda:in source="pers_data_class" target="class_type" />
+        <camunda:in source="reservedSeats" target="reservedSeats" />
+        <camunda:out source="seatNo" target="DepartureSeatNo" />
+        <camunda:out source="carNo" target="DepartureCarNo" />
+        <camunda:out source="reservedSeats" target="reservedSeats" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1s45qjm</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ue7q0i</bpmn:outgoing>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="Activity_1f031fv" name="Get Car and Seat Number" calledElement="GetTrainInfo">
+      <bpmn:extensionElements>
+        <camunda:in source="pers_data_seat_type" target="seat_type" />
+        <camunda:in source="pers_data_class" target="class_type" />
+        <camunda:in source="reservedSeats" target="reservedSeats" />
+        <camunda:out source="seatNo" target="ReturnSeatNo" />
+        <camunda:out source="carNo" target="ReturnCarNo" />
+        <camunda:out source="reservedSeats" target="reservedSeats" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0lyltck</bpmn:incoming>
+      <bpmn:outgoing>Flow_00ijz3e</bpmn:outgoing>
+    </bpmn:callActivity>
+    <bpmn:scriptTask id="Activity_1ud3kq3" name="Calculate Train Duration &#39;To&#39;" scriptFormat="feel" camunda:resultVariable="duration_departureTrain">
+      <bpmn:incoming>Flow_1v1aug9</bpmn:incoming>
+      <bpmn:incoming>Flow_00ijz3e</bpmn:incoming>
+      <bpmn:outgoing>Flow_1s45qjm</bpmn:outgoing>
+      <bpmn:script>date and time(departureTrain) + duration("PT227M")</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:scriptTask id="Activity_1kv29v7" name="Calculate Train Duration &#39;From&#39;" scriptFormat="feel" camunda:resultVariable="duration_returnTrain">
+      <bpmn:incoming>Flow_1fl6ub8</bpmn:incoming>
+      <bpmn:outgoing>Flow_0lyltck</bpmn:outgoing>
+      <bpmn:script>date and time(returnTrain) + duration("PT189M")</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:exclusiveGateway id="Gateway_0qncahy" default="Flow_1v1aug9">
+      <bpmn:incoming>Flow_1hq4b7i</bpmn:incoming>
+      <bpmn:outgoing>Flow_1v1aug9</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1fl6ub8</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_00ijz3e" sourceRef="Activity_1f031fv" targetRef="Activity_1ud3kq3" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ReserveTicket">
+      <bpmndi:BPMNShape id="Event_1relsuv_di" bpmnElement="Event_1relsuv">
+        <dc:Bounds x="812" y="79" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="132" y="79" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1060igy_di" bpmnElement="Gateway_0qncahy" isMarkerVisible="true">
+        <dc:Bounds x="265" y="72" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0qzq89j_di" bpmnElement="Activity_091ke8m">
+        <dc:Bounds x="640" y="57" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0e1t3kp_di" bpmnElement="Activity_1ud3kq3">
+        <dc:Bounds x="480" y="57" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0nwfset_di" bpmnElement="Activity_1kv29v7">
+        <dc:Bounds x="330" y="200" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_15hohht_di" bpmnElement="Activity_1f031fv">
+        <dc:Bounds x="480" y="200" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1hq4b7i_di" bpmnElement="Flow_1hq4b7i">
+        <di:waypoint x="168" y="97" />
+        <di:waypoint x="265" y="97" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1v1aug9_di" bpmnElement="Flow_1v1aug9">
+        <di:waypoint x="315" y="97" />
+        <di:waypoint x="480" y="97" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ue7q0i_di" bpmnElement="Flow_1ue7q0i">
+        <di:waypoint x="740" y="97" />
+        <di:waypoint x="812" y="97" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1fl6ub8_di" bpmnElement="Flow_1fl6ub8">
+        <di:waypoint x="290" y="122" />
+        <di:waypoint x="290" y="240" />
+        <di:waypoint x="330" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0lyltck_di" bpmnElement="Flow_0lyltck">
+        <di:waypoint x="430" y="240" />
+        <di:waypoint x="480" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_00ijz3e_di" bpmnElement="Flow_00ijz3e">
+        <di:waypoint x="530" y="200" />
+        <di:waypoint x="530" y="137" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1s45qjm_di" bpmnElement="Flow_1s45qjm">
+        <di:waypoint x="580" y="97" />
+        <di:waypoint x="640" y="97" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

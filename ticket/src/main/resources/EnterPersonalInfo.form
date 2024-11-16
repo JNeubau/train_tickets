@@ -1,0 +1,158 @@
+{
+  "components": [
+    {
+      "label": "Imię",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_14xgxlz",
+        "columns": null
+      },
+      "id": "Field_1c8ddkf",
+      "key": "pers_data_name",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Nazwisko",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_06zsesy",
+        "columns": null
+      },
+      "id": "Field_15i7he1",
+      "key": "pers_data_surname",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Email",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1jrrdk0",
+        "columns": null
+      },
+      "id": "Field_112av85",
+      "key": "pers_data_email",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Separator",
+      "type": "separator",
+      "layout": {
+        "row": "Row_16lliu4",
+        "columns": null
+      },
+      "id": "Field_1f69s9v"
+    },
+    {
+      "label": "Znizka",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_1p3n02k",
+        "columns": null
+      },
+      "id": "Field_0burija",
+      "key": "pers_data_isDisounted"
+    },
+    {
+      "values": [
+        {
+          "label": "Student/Doktorant",
+          "value": "51"
+        },
+        {
+          "label": "Zolnierz",
+          "value": "79"
+        },
+        {
+          "label": "Karta Dużej Rodziny",
+          "value": "49"
+        },
+        {
+          "label": "Uczen",
+          "value": "37"
+        }
+      ],
+      "label": "Wybierz",
+      "type": "select",
+      "layout": {
+        "row": "Row_09zx59d",
+        "columns": null
+      },
+      "id": "Field_0f8nedp",
+      "key": "pers_data_discount",
+      "defaultValue": "51",
+      "conditional": {
+        "hide": "=not (pers_data_isDisounted)"
+      }
+    },
+    {
+      "label": "Separator",
+      "type": "separator",
+      "layout": {
+        "row": "Row_0bpgilz",
+        "columns": null
+      },
+      "id": "Field_1al614n"
+    },
+    {
+      "values": [
+        {
+          "label": "Brak preferecji",
+          "value": "0_No"
+        },
+        {
+          "label": "Okno",
+          "value": "1_Win"
+        },
+        {
+          "label": "Korzytarz",
+          "value": "2_Pass"
+        }
+      ],
+      "label": "Miejsce",
+      "type": "radio",
+      "layout": {
+        "row": "Row_0kvkgz6",
+        "columns": null
+      },
+      "id": "Field_0q9ozmf",
+      "key": "pers_data_seat_type",
+      "defaultValue": "0_No"
+    },
+    {
+      "values": [
+        {
+          "label": "2 klasa",
+          "value": "2_class"
+        },
+        {
+          "label": "1 klasa",
+          "value": "1_class"
+        }
+      ],
+      "label": "Klasa",
+      "type": "radio",
+      "layout": {
+        "row": "Row_0kvkgz6",
+        "columns": null
+      },
+      "id": "Field_0vi9031",
+      "key": "pers_data_class",
+      "defaultValue": "2_class"
+    }
+  ],
+  "type": "default",
+  "id": "EnterPersonalInfo",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.27.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.21.0",
+  "schemaVersion": 16
+}

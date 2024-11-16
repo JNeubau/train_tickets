@@ -35,20 +35,6 @@
       "disabled": true
     },
     {
-      "label": "Nr Telefonu",
-      "type": "textfield",
-      "layout": {
-        "row": "Row_1eugm07",
-        "columns": null
-      },
-      "id": "Field_04b7drj",
-      "key": "pers_data_phone",
-      "disabled": true,
-      "conditional": {
-        "hide": "=pers_data_phone"
-      }
-    },
-    {
       "label": "Zniżka",
       "type": "checkbox",
       "layout": {
@@ -134,10 +120,12 @@
             "columns": null
           },
           "id": "Field_0a0yl76",
-          "key": "datetime_cfypqp",
+          "key": "duration_departureTrain",
           "timeLabel": "Na Miejscu",
           "timeSerializingFormat": "utc_offset",
-          "timeInterval": 15
+          "timeInterval": 15,
+          "disabled": true,
+          "use24h": true
         },
         {
           "height": 60,
@@ -169,6 +157,17 @@
           },
           "id": "Field_1f93fez",
           "key": "DepartureSeatNo",
+          "disabled": true
+        },
+        {
+          "label": "Cena",
+          "type": "textfield",
+          "layout": {
+            "row": "Row_0zaazoo",
+            "columns": null
+          },
+          "id": "Field_1w9f0tw",
+          "key": "departurreTicketPrice",
           "disabled": true
         }
       ],
@@ -210,10 +209,12 @@
             "columns": null
           },
           "id": "Field_10fjhnw",
-          "key": "datetime_s8xdr7",
+          "key": "duration_returnTrain",
           "timeLabel": "Na Miejscu",
           "timeSerializingFormat": "utc_offset",
-          "timeInterval": 15
+          "timeInterval": 15,
+          "disabled": true,
+          "use24h": true
         },
         {
           "height": 60,
@@ -246,6 +247,17 @@
           "id": "Field_0zngozm",
           "key": "ReturnSeatNo",
           "disabled": true
+        },
+        {
+          "label": "Cena",
+          "type": "textfield",
+          "layout": {
+            "row": "Row_0sp0ryy",
+            "columns": null
+          },
+          "id": "Field_16emn96",
+          "key": "returnTicketPrice",
+          "disabled": true
         }
       ],
       "showOutline": true,
@@ -266,7 +278,7 @@
       "type": "button",
       "layout": {
         "row": "Row_16i46k8",
-        "columns": null
+        "columns": 4
       },
       "id": "Field_0i2rxuq"
     }

@@ -22,8 +22,8 @@
     <bpmn:sequenceFlow id="Flow_0x561cp" sourceRef="Activity_1696d6v" targetRef="Gateway_1w4v5ek" />
     <bpmn:sequenceFlow id="Flow_08c9nft" sourceRef="Activity_0c1k8sx" targetRef="Gateway_1w4v5ek" />
     <bpmn:exclusiveGateway id="Gateway_03w0unc" default="Flow_0wwut14">
-      <bpmn:incoming>Flow_1kz5afx</bpmn:incoming>
       <bpmn:incoming>Flow_0pk3gz1</bpmn:incoming>
+      <bpmn:incoming>Flow_1kz5afx</bpmn:incoming>
       <bpmn:outgoing>Flow_0wwut14</bpmn:outgoing>
       <bpmn:outgoing>Flow_09d8wv0</bpmn:outgoing>
       <bpmn:outgoing>Flow_1lzded5</bpmn:outgoing>
@@ -117,10 +117,10 @@
       <bpmn:outgoing>Flow_1kz5afx</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="Flow_1xi7md6" name="Not reserved" sourceRef="Gateway_1jnut0e" targetRef="Activity_0y7cr4g">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isSeatReserved}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!isSeatReserved}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_1kz5afx" name="Seat reserved" sourceRef="Gateway_1jnut0e" targetRef="Gateway_03w0unc">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!isSeatReserved}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isSeatReserved}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_1bl5byo" sourceRef="Activity_0y7cr4g" targetRef="Event_1khhdjd" />
     <bpmn:scriptTask id="Activity_0x5wucz" name="Check seat reserved" scriptFormat="groovy" camunda:resultVariable="isSeatReserved">
@@ -132,7 +132,7 @@
       <bpmn:incoming>Flow_0yyyf1b</bpmn:incoming>
       <bpmn:outgoing>Flow_0zujnvh</bpmn:outgoing>
       <bpmn:script>def reservedSeats = execution.getVariable('reservedSeats').toString()
-def carNo = execution.getVariable('carNo').toString()
+def carNo = execution.getVariable('reservedSeats').toString()
 def seatNo = execution.getVariable('seatNo').toString()
 
 def result = reservedSeats.contains("," + carNo + "_" + seatNo + ",")
@@ -159,6 +159,12 @@ execution.setVariable('isSeatReserved', result)</bpmn:script>
       <bpmndi:BPMNShape id="Gateway_03w0unc_di" bpmnElement="Gateway_03w0unc" isMarkerVisible="true">
         <dc:Bounds x="635" y="172" width="50" height="50" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1srirqt_di" bpmnElement="Gateway_1srirqt" isMarkerVisible="true">
+        <dc:Bounds x="905" y="172" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1khhdjd_di" bpmnElement="Event_1khhdjd">
+        <dc:Bounds x="1162" y="442" width="36" height="36" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0rlkgvx_di" bpmnElement="Activity_0dt4gmv">
         <dc:Bounds x="750" y="157" width="100" height="80" />
         <bpmndi:BPMNLabel />
@@ -177,14 +183,8 @@ execution.setVariable('isSeatReserved', result)</bpmn:script>
       <bpmndi:BPMNShape id="Activity_0g488gz_di" bpmnElement="Activity_0c1k8sx">
         <dc:Bounds x="370" y="270" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Gateway_1srirqt_di" bpmnElement="Gateway_1srirqt" isMarkerVisible="true">
-        <dc:Bounds x="905" y="172" width="50" height="50" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_1jnut0e_di" bpmnElement="Gateway_1jnut0e" isMarkerVisible="true">
         <dc:Bounds x="1155" y="172" width="50" height="50" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1khhdjd_di" bpmnElement="Event_1khhdjd">
-        <dc:Bounds x="1162" y="442" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_115bkk6_di" bpmnElement="Activity_0x5wucz">
         <dc:Bounds x="1010" y="157" width="100" height="80" />
@@ -224,15 +224,6 @@ execution.setVariable('isSeatReserved', result)</bpmn:script>
         <di:waypoint x="575" y="197" />
         <di:waypoint x="635" y="197" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1kz5afx_di" bpmnElement="Flow_1kz5afx">
-        <di:waypoint x="1180" y="172" />
-        <di:waypoint x="1180" y="100" />
-        <di:waypoint x="660" y="100" />
-        <di:waypoint x="660" y="172" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="886" y="82" width="69" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0wwut14_di" bpmnElement="Flow_0wwut14">
         <di:waypoint x="685" y="197" />
         <di:waypoint x="750" y="197" />
@@ -260,11 +251,6 @@ execution.setVariable('isSeatReserved', result)</bpmn:script>
         <di:waypoint x="850" y="197" />
         <di:waypoint x="905" y="197" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1jkfeik_di" bpmnElement="Flow_1jkfeik">
-        <di:waypoint x="850" y="310" />
-        <di:waypoint x="930" y="310" />
-        <di:waypoint x="930" y="222" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1eum9ci_di" bpmnElement="Flow_1eum9ci">
         <di:waypoint x="850" y="420" />
         <di:waypoint x="930" y="420" />
@@ -273,6 +259,11 @@ execution.setVariable('isSeatReserved', result)</bpmn:script>
       <bpmndi:BPMNEdge id="Flow_0yyyf1b_di" bpmnElement="Flow_0yyyf1b">
         <di:waypoint x="955" y="197" />
         <di:waypoint x="1010" y="197" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1jkfeik_di" bpmnElement="Flow_1jkfeik">
+        <di:waypoint x="850" y="310" />
+        <di:waypoint x="930" y="310" />
+        <di:waypoint x="930" y="222" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0zujnvh_di" bpmnElement="Flow_0zujnvh">
         <di:waypoint x="1110" y="197" />
@@ -283,6 +274,15 @@ execution.setVariable('isSeatReserved', result)</bpmn:script>
         <di:waypoint x="1180" y="300" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1164" y="257" width="63" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1kz5afx_di" bpmnElement="Flow_1kz5afx">
+        <di:waypoint x="1180" y="172" />
+        <di:waypoint x="1180" y="70" />
+        <di:waypoint x="660" y="70" />
+        <di:waypoint x="660" y="172" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="895" y="43" width="69" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1bl5byo_di" bpmnElement="Flow_1bl5byo">

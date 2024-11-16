@@ -162,6 +162,16 @@
       "id": "Field_0r7g7dg",
       "key": "pers_data_class",
       "defaultValue": "2_class"
+    },
+    {
+      "action": "submit",
+      "label": "Potwierdź",
+      "type": "button",
+      "layout": {
+        "row": "Row_1gxcl5r",
+        "columns": null
+      },
+      "id": "Field_17ou30q"
     }
   ],
   "type": "default",

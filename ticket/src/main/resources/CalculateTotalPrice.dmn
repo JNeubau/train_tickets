@@ -1,18 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="CalculateTotalPrice_" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.27.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.21.0">
-  <decision id="Decision_1jkx28x" name="Decision 1" camunda:historyTimeToLive="180">
+  <decision id="CalculateTotalPrice" name="CalculateTotalPrice" camunda:historyTimeToLive="180">
     <decisionTable id="DecisionTable_1lyx3bf">
-      <input id="Input_1">
-        <inputExpression id="InputExpression_1" typeRef="string">
+      <input id="InputClause_0kga0pv" label="pers_data_isDisounted" camunda:inputVariable="pers_data_isDisounted">
+        <inputExpression id="LiteralExpression_1twe8p0" typeRef="boolean">
           <text></text>
         </inputExpression>
       </input>
-      <output id="Output_1" typeRef="string" />
+      <input id="Input_1" label="class_type" camunda:inputVariable="class_type">
+        <inputExpression id="InputExpression_1" typeRef="string" expressionLanguage="feel">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1h15hgh" label="pers_data_discount" camunda:inputVariable="pers_data_discount">
+        <inputExpression id="LiteralExpression_1nmdu3p" typeRef="string" expressionLanguage="feel">
+          <text></text>
+        </inputExpression>
+        <inputValues id="UnaryTests_11wntkq">
+          <text></text>
+        </inputValues>
+      </input>
+      <output id="Output_1" label="ticketPrice" name="ticketPrice" typeRef="integer" />
+      <rule id="DecisionRule_0yzysso">
+        <inputEntry id="UnaryTests_1k1n5lq">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1d1ljl3">
+          <text>"1_class"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0x668cm">
+          <text>"51"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10p32g0">
+          <text>98</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1m0qgvt">
+        <inputEntry id="UnaryTests_077bh1n">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0urtfrb">
+          <text>"1_class"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ytczwh">
+          <text>"79"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qwwcv1">
+          <text>42</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07team8">
+        <inputEntry id="UnaryTests_1pef2rj">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1drfljo">
+          <text>"1_class"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mrs4mp">
+          <text>"49"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1b02mv6">
+          <text>102</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kl3moa">
+        <inputEntry id="UnaryTests_06nss2g">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qt9902">
+          <text>"1_class"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ca7vb6">
+          <text>"37"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0an87i0">
+          <text>126</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0lzz6ru">
+        <inputEntry id="UnaryTests_01jwzmi">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05plkcm">
+          <text>"2_class"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lspp2r">
+          <text>"51"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09uxa2k">
+          <text>49</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0yhsnsh">
+        <inputEntry id="UnaryTests_0f7qr09">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tc5v2e">
+          <text>"2_class"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17n39pn">
+          <text>"79"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16ea2uh">
+          <text>21</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jiusnv">
+        <inputEntry id="UnaryTests_127h7j9">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10ypv2o">
+          <text>"2_class"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1e7xml7">
+          <text>"49"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xls9qp">
+          <text>51</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0yac5mk">
+        <inputEntry id="UnaryTests_01sltjj">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qrifc4">
+          <text>"2_class"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lr2u4x">
+          <text>"37"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1j2g1z7">
+          <text>63</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mx3a19">
+        <inputEntry id="UnaryTests_0p404ix">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kwkc2z">
+          <text>"1_class"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z6yabz">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0h8q29h">
+          <text>200</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0108sse">
+        <inputEntry id="UnaryTests_1mmxhrg">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lnn2ho">
+          <text>"2_class"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e375bi">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07d6bvl">
+          <text>100</text>
+        </outputEntry>
+      </rule>
     </decisionTable>
   </decision>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram>
-      <dmndi:DMNShape dmnElementRef="Decision_1jkx28x">
+      <dmndi:DMNShape dmnElementRef="CalculateTotalPrice">
         <dc:Bounds height="80" width="180" x="160" y="100" />
       </dmndi:DMNShape>
     </dmndi:DMNDiagram>
