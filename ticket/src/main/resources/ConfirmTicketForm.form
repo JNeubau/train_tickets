@@ -111,33 +111,6 @@
           "use24h": true
         },
         {
-          "subtype": "time",
-          "dateLabel": "Date",
-          "label": "Date time",
-          "type": "datetime",
-          "layout": {
-            "row": "Row_07kxkf4",
-            "columns": null
-          },
-          "id": "Field_0a0yl76",
-          "key": "duration_departureTrain",
-          "timeLabel": "Na Miejscu",
-          "timeSerializingFormat": "utc_offset",
-          "timeInterval": 15,
-          "disabled": true,
-          "use24h": true
-        },
-        {
-          "height": 60,
-          "label": "Spacer",
-          "type": "spacer",
-          "layout": {
-            "row": "Row_07kxkf4",
-            "columns": null
-          },
-          "id": "Field_0eh8eev"
-        },
-        {
           "label": "Wagon",
           "type": "textfield",
           "layout": {
@@ -198,33 +171,6 @@
           "timeSerializingFormat": "no_timezone",
           "timeInterval": 1,
           "use24h": true
-        },
-        {
-          "subtype": "time",
-          "dateLabel": "Date",
-          "label": "Date time",
-          "type": "datetime",
-          "layout": {
-            "row": "Row_1xii1fh",
-            "columns": null
-          },
-          "id": "Field_10fjhnw",
-          "key": "duration_returnTrain",
-          "timeLabel": "Na Miejscu",
-          "timeSerializingFormat": "utc_offset",
-          "timeInterval": 15,
-          "disabled": true,
-          "use24h": true
-        },
-        {
-          "height": 60,
-          "label": "Spacer",
-          "type": "spacer",
-          "layout": {
-            "row": "Row_1xii1fh",
-            "columns": null
-          },
-          "id": "Field_15z5oy5"
         },
         {
           "label": "Wagon",
